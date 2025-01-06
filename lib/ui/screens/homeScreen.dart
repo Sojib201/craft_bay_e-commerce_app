@@ -112,16 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: categoryListController
-                            .categoryListModel.data!.length,
+                            .categoryListModel.categoryList!.length,
                         itemBuilder: (context, index) {
                           return CategoryItemWidget(
                             categoryItemName: categoryListController
                                     .categoryListModel
-                                    .data![index]
-                                    .categoryName ??
+                                    .categoryList![index]
+                                    .image ??
                                 "",
                             image: categoryListController.categoryListModel
-                                    .data![index].categoryImg ??
+                                    .categoryList![index].image ??
                                 "",
                             onTap: () {
                               Navigator.push(
@@ -130,11 +130,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   builder: (context) => ProductListScreen(
                                       categoryName: categoryListController
                                               .categoryListModel
-                                              .data![index]
-                                              .categoryName ??
+                                              .categoryList![index]
+                                              .image ??
                                           "",
                                       categoryId:
-                                          "${categoryListController.categoryListModel.data![index].id ?? 1}"),
+                                          "${categoryListController.categoryListModel.categoryList![index].id ?? 1}"),
                                 ),
                               );
                             },

@@ -48,16 +48,16 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
               },
               child: GridView.builder(
                 itemCount:
-                    categoryListController.categoryListModel.data!.length,
+                    categoryListController.categoryListModel.categoryList!.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4),
                 itemBuilder: (content, index) {
                   return CategoryItemWidget(
                     categoryItemName: categoryListController
-                            .categoryListModel.data![index].categoryName ??
+                            .categoryListModel.categoryList![index].image ??
                         "",
                     image: categoryListController
-                            .categoryListModel.data![index].categoryImg ??
+                            .categoryListModel.categoryList![index].image ??
                         "",
                     onTap: () {
                       Navigator.push(
@@ -66,11 +66,11 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                           builder: (context) => ProductListScreen(
                               categoryName: categoryListController
                                       .categoryListModel
-                                      .data![index]
-                                      .categoryName ??
+                                      .categoryList![index]
+                                      .image ??
                                   "",
                               categoryId:
-                                  "${categoryListController.categoryListModel.data![index].id ?? 1}"),
+                                  "${categoryListController.categoryListModel.categoryList![index].id ?? 1}"),
                         ),
                       );
                     },
